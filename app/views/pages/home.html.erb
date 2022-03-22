@@ -1,15 +1,21 @@
 <h1 id="banner-title">Is Your Dog Healthy?</h1>
+<div class="form-wrapper" data-controller="form">
+  <%= form_with url: "/",
+                method: :post,
+                data: { form_target: "form", action: "input->form#getDogInfo"} do |form| %>
+    <%= form.label :height, "Height:" %>
+    <%= form.text_field :height %>
+    <%= form.label :weight, "Weight:" %>
+    <%= form.text_field :weight %>
+    <%= form.label :breed, "Breed:" %>
+    <datalist id="breed" data-form-taget="suggestions">
+    <!-- inject suggestions here -->
+    </datalist>
+    <%= form.search_field :breed, list: "breed" %>
+    <%= form.button :submit, data: { form_target: "submit"}%>
+  <% end %>
 
-<%= form_with url: "/",method: :get do |form| %>
-  <%= form.label :height, "Height:" %>
-  <%= form.text_field :height %>
-  <%= form.label :weight, "Weight:" %>
-  <%= form.text_field :weight %>
-  <%= form.label :breed, "Breed:" %>
-  <%= form.text_field :breed %>
-  <%= form.submit "Get Results" %>
-<% end %>
-
-<div class="results">
-  <!-- Javascript will inject the results here -->
+  <div class="results" data-form-target="results">
+    <!-- Javascript will inject the results here -->
+  </div>
 </div>
