@@ -1,2 +1,15 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1 id="banner-title">Is Your Dog Healthy?</h1>
+
+<%= form_with url: "/",method: :get do |form| %>
+  <%= form.label :height, "Height:" %>
+  <%= form.text_field :height %>
+  <%= form.label :weight, "Weight:" %>
+  <%= form.text_field :weight %>
+  <%= form.label :breed, "Breed:" %>
+  <%= form.text_field :breed %>
+  <%= form.submit "Get Results" %>
+<% end %>
+
+<div class="results">
+  <!-- Javascript will inject the results here -->
+</div>
