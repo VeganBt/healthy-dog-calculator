@@ -2,7 +2,8 @@
 <div class="form-wrapper" data-controller="form">
   <%= form_with url: "/",
                 method: :post,
-                data: { form_target: "form" } do |form| %>
+                data: { form_target: "form",
+                        action: "submit->form#showResults" } do |form| %>
     <%= form.label :height, "Height:" %>
     <%= form.text_field :height %>
     <%= form.label :weight, "Weight:" %>
