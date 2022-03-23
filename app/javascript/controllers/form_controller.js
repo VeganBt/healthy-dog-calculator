@@ -38,6 +38,7 @@ export default class extends Controller {
     // stop reloading the page by submit
     event.preventDefault();
     // clear the results div
+    this.resultsTarget.classList.remove("d-none");
     this.resultsTarget.innerHTML = ""
     let html;
     const dogBMI = this.calcDogBMI();
