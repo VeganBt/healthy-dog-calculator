@@ -1,1 +1,24 @@
 // Specific CSS for your home-page
+#banner-title {
+  text-align: center;
+  color: white;
+  text-shadow: 2px 2px 16px rgba(0, 0, 0, 0.267);
+  font-weight: bolder;
+}
+
+body {
+  padding-top: 1rem;
+  background-image:
+    linear-gradient(rgba(255, 255, 194, 0.199), rgba(26, 130, 39, 0.18)), url('bg.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+.results {
+  color: white;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.452);
+  padding: 1rem;
+}

@@ -4,16 +4,25 @@
                 method: :post,
                 data: { form_target: "form",
                         action: "submit->form#showResults" } do |form| %>
-    <%= form.label :height, "Height (cm):" %>
-    <%= form.text_field :height, required: true, placeholder: "Fluffy's height is..." %>
-    <%= form.label :weight, "Weight (kg):" %>
-    <%= form.text_field :weight, required: true, placeholder: "Fluffy's weight is..." %>
-    <%= form.label :breed, "Breed:" %>
-    <datalist id="breed" data-form-target="suggestions">
-    <!-- inject suggestions here -->
-    </datalist>
-    <%= form.search_field :breed, required: true, list: "breed", placeholder: "Fluffy's breed is...", data: { action: "input->form#getDogInfo" } %>
-    <%= form.button :submit, data: { form_target: "submit"}, class: "btn btn-primary" %>
+    <div class="row form-top">
+      <div class="col-12 col-sm-6">
+        <%= form.text_field :height, required: true, placeholder: "Fluffy's height (cm) is..." %>
+      </div>
+      <div class="col-12 col-sm-6">
+        <%= form.text_field :weight, required: true, placeholder: "Fluffy's weight (kg) is..." %>
+      </div>
+      <br>
+    </div>
+    <div class="row d-flex flex-column align-items-center">
+      <div class="col-12 col-sm-6 form-bottom">
+        <datalist id="breed" data-form-target="suggestions">
+        <!-- inject suggestions here -->
+        </datalist>
+        <%= form.search_field :breed, required: true, list: "breed", placeholder: "Fluffy's breed is...", data: { action: "input->form#getDogInfo" } %>
+        <br>
+        <%= form.button "Check", data: { form_target: "submit"}, class: "form-btn" %>
+      </div>
+    </div>
   <% end %>
 
   <div class="results" data-form-target="results">
