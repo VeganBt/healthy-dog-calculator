@@ -2,16 +2,16 @@
 <div class="form-wrapper" data-controller="form">
   <%= form_with url: "/",
                 method: :post,
-                data: { form_target: "form", action: "input->form#getDogInfo"} do |form| %>
+                data: { form_target: "form" } do |form| %>
     <%= form.label :height, "Height:" %>
     <%= form.text_field :height %>
     <%= form.label :weight, "Weight:" %>
     <%= form.text_field :weight %>
     <%= form.label :breed, "Breed:" %>
-    <datalist id="breed" data-form-taget="suggestions">
+    <datalist id="breed" data-form-target="suggestions">
     <!-- inject suggestions here -->
     </datalist>
-    <%= form.search_field :breed, list: "breed" %>
+    <%= form.search_field :breed, list: "breed", data: { action: "input->form#getDogInfo" } %>
     <%= form.button :submit, data: { form_target: "submit"}%>
   <% end %>
 
