@@ -39,12 +39,12 @@ export default class extends Controller {
     event.preventDefault();
     // clear the results div
     this.resultsTarget.innerHTML = ""
+    let html;
     const dogBMI = this.calcDogBMI();
     this.fetchDog(this.getDogBreed())
     .then((data) => {
       // first calculate avg dog BMI
       const healthyDogBMI = this.getBreedBMI(data);
-      let html;
       // then compare it with the input dog BMI
       if (dogBMI < healthyDogBMI.min) {
         // the dog is underweight

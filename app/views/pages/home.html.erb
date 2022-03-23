@@ -4,16 +4,16 @@
                 method: :post,
                 data: { form_target: "form",
                         action: "submit->form#showResults" } do |form| %>
-    <%= form.label :height, "Height:" %>
-    <%= form.text_field :height %>
-    <%= form.label :weight, "Weight:" %>
-    <%= form.text_field :weight %>
+    <%= form.label :height, "Height (cm):" %>
+    <%= form.text_field :height, required: true, placeholder: "Fluffy's height is..." %>
+    <%= form.label :weight, "Weight (kg):" %>
+    <%= form.text_field :weight, required: true, placeholder: "Fluffy's weight is..." %>
     <%= form.label :breed, "Breed:" %>
     <datalist id="breed" data-form-target="suggestions">
     <!-- inject suggestions here -->
     </datalist>
-    <%= form.search_field :breed, list: "breed", data: { action: "input->form#getDogInfo" } %>
-    <%= form.button :submit, data: { form_target: "submit"}%>
+    <%= form.search_field :breed, required: true, list: "breed", placeholder: "Fluffy's breed is...", data: { action: "input->form#getDogInfo" } %>
+    <%= form.button :submit, data: { form_target: "submit"}, class: "btn btn-primary" %>
   <% end %>
 
   <div class="results" data-form-target="results">
