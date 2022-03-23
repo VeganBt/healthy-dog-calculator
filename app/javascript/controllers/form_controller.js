@@ -35,20 +35,40 @@ export default class extends Controller {
 
 
   showResults(event) {
+    // stop reloading the page by submit
     event.preventDefault();
+    // clear the results div
+    this.resultsTarget.innerHTML = ""
     const dogBMI = this.calcDogBMI();
     this.fetchDog(this.getDogBreed())
     .then((data) => {
       // first calculate avg dog BMI
       const healthyDogBMI = this.getBreedBMI(data);
+      let html;
       // then compare it with the input dog BMI
       if (dogBMI < healthyDogBMI.min) {
-        console.log("Dog is underweight");
+        // the dog is underweight
+        html = `
+        <p>With a BMI score of ${dogBMI.toFixed(0)}...</p>
+        <h2>Your dog is underweight.</h2>
+        <p>You should ffeed you dog with more treats!</p>
+        `;
       } else if (dogBMI > healthyDogBMI.max) {
-        console.log("Dog is overwight");
+        // the dog is overweight
+        html = `
+        <p>With a BMI score of ${dogBMI.toFixed(0)}...</p>
+        <h2>Your dog is overweight.</h2>
+        <p>You should feed you dog with less treats and let it do some exercise!</p>
+        `;
       } else {
-        console.log("dog is healthy");
+        // the dog is healthy
+        html = `
+        <p>With a BMI score of ${dogBMI.toFixed(0)}...</p>
+        <h2>Your dog is healthy.</h2>
+        <p>Good job - Keep up the good work!</p>
+        `;
       }
+      this.resultsTarget.insertAdjacentHTML('beforeend', html);
     });
   }
 
