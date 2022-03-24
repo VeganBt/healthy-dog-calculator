@@ -1,15 +1,26 @@
 input {
   width: 100%;
-  padding: 0 0.25em;
+  padding: 0.25em 0.5em;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  font-size: 1.1em;
+  border: 0;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.205);
+  background-color: #EFF2EF;
+  color: #A72608;
+  &::placeholder {
+    color: #a72508ab;
+  }
 }
 
 .form-top {
   padding: 1rem 0;
+  display: flex;
+  justify-content: center;
 }
 
 .form-bottom {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 1rem 0;
 }

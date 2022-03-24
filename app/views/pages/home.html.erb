@@ -5,27 +5,27 @@
                 data: { form_target: "form",
                         action: "submit->form#showResults" } do |form| %>
     <div class="row form-top">
-      <div class="col-12 col-sm-6">
+      <div class="col-12 col-sm-4">
         <%= form.text_field :height, required: true, placeholder: "Fluffy's height (cm) is..." %>
       </div>
-      <div class="col-12 col-sm-6">
+      <div class="col-12 col-sm-4">
         <%= form.text_field :weight, required: true, placeholder: "Fluffy's weight (kg) is..." %>
       </div>
       <br>
     </div>
     <div class="row d-flex flex-column align-items-center">
-      <div class="col-12 col-sm-6 form-bottom">
+      <div class="col-12 col-sm-3 form-bottom">
         <datalist id="breed" data-form-target="suggestions">
         <!-- inject suggestions here -->
         </datalist>
         <%= form.search_field :breed, required: true, list: "breed", placeholder: "Fluffy's breed is...", data: { action: "input->form#getDogInfo" } %>
-        <br>
         <%= form.button "Check", data: { form_target: "submit"}, class: "form-btn" %>
       </div>
     </div>
   <% end %>
-
-  <div class="results d-none" data-form-target="results">
-    <!-- Javascript will inject the results here -->
+  <div class="results-wrapper">
+    <div class="results d-none col-12 col-sm-8 m-3" data-form-target="results">
+      <!-- Javascript will inject the results here -->
+    </div>
   </div>
 </div>

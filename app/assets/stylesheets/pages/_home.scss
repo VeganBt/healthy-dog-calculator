@@ -4,16 +4,22 @@
   color: white;
   text-shadow: 2px 2px 16px rgba(0, 0, 0, 0.267);
   font-weight: bolder;
+  color: #EFF2EF;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
   padding-top: 1rem;
   background-image:
-    linear-gradient(rgba(255, 255, 194, 0.199), rgba(26, 130, 39, 0.18)), url('bg.jpg');
+    linear-gradient(rgba(255, 255, 194, 0.199), rgba(255, 255, 255, 0.178)), url('bg.jpg');
   background-repeat: no-repeat;
   background-size: cover;
   min-height: 100vh;
   min-width: 100vw;
+  .container {
+    border-radius: 16px;
+    max-width: 90vw;
+  }
 }
 
 .results {
@@ -21,4 +27,10 @@ body {
   border-radius: 8px;
   background-color: rgba(0, 0, 0, 0.452);
   padding: 1rem;
+}
+
+.results-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
