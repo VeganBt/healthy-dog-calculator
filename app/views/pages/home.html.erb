@@ -5,16 +5,16 @@
                 data: { form_target: "form",
                         action: "submit->form#showResults" } do |form| %>
     <div class="row form-top">
-      <div class="col-12 col-sm-6 col-lg-4">
+      <div class="col-12 col-sm-6 col-lg-3">
         <%= form.text_field :height, required: true, placeholder: "Fluffy's height (cm) is..." %>
       </div>
-      <div class="col-12 col-sm-6 col-lg-4">
+      <div class="col-12 col-sm-6 col-lg-3">
         <%= form.text_field :weight, required: true, placeholder: "Fluffy's weight (kg) is..." %>
       </div>
       <br>
     </div>
     <div class="row d-flex flex-column align-items-center">
-      <div class="col-12 col-sm-6 col-lg-4 form-bottom">
+      <div class="col-12 col-sm-6 col-lg-3 form-bottom">
         <datalist id="breed" data-form-target="suggestions">
         <!-- inject suggestions here -->
         </datalist>
