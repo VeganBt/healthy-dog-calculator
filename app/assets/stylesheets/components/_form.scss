@@ -1,3 +1,9 @@
+.form-wrapper {
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.452);
+  padding: 1rem;
+}
+
 input {
   width: 100%;
   padding: 0.25em 0.5em;
@@ -16,7 +22,7 @@ input {
 .form-top {
   padding: 1rem 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .form-bottom {

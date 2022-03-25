@@ -1,30 +1,33 @@
 <h1 id="banner-title">Is Your Dog Healthy?</h1>
-<div class="form-wrapper" data-controller="form">
-  <%= form_with url: "/",
-                method: :post,
-                data: { form_target: "form",
-                        action: "submit->form#showResults" } do |form| %>
-    <div class="row form-top">
-      <div class="col-12 col-sm-6 col-lg-3">
-        <%= form.text_field :height, required: true, placeholder: "Fluffy's height (cm) is..." %>
+<div class="controller-wrapper" data-controller="form">
+  <div class="form-wrapper col-12 col-sm-9 col-lg-7">
+    <%= form_with url: "/",
+                  method: :post,
+                  data: { form_target: "form",
+                          action: "submit->form#showResults" } do |form| %>
+      <div class="row form-top">
+        <div class="col-12 col-sm-6 col-lg-6">
+          <%= form.text_field :height, required: true, placeholder: "Fluffy's height (cm) is..." %>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-6">
+          <%= form.text_field :weight, required: true, placeholder: "Fluffy's weight (kg) is..." %>
+        </div>
+        <br>
       </div>
-      <div class="col-12 col-sm-6 col-lg-3">
-        <%= form.text_field :weight, required: true, placeholder: "Fluffy's weight (kg) is..." %>
+      <div class="row d-flex flex-column align-items-center">
+        <div class="col-12 col-sm-6 col-lg-6 form-bottom">
+          <datalist id="breed" data-form-target="suggestions">
+          <!-- inject suggestions here -->
+          </datalist>
+          <%= form.search_field :breed, autocomplete: "off", required: true, list: "breed", placeholder: "Fluffy's breed is...", data: { action: "input->form#getDogInfo" } %>
+          <%= form.button "Check", data: { form_target: "submit"}, class: "form-btn" %>
+        </div>
       </div>
-      <br>
-    </div>
-    <div class="row d-flex flex-column align-items-center">
-      <div class="col-12 col-sm-6 col-lg-3 form-bottom">
-        <datalist id="breed" data-form-target="suggestions">
-        <!-- inject suggestions here -->
-        </datalist>
-        <%= form.search_field :breed, required: true, list: "breed", placeholder: "Fluffy's breed is...", data: { action: "input->form#getDogInfo" } %>
-        <%= form.button "Check", data: { form_target: "submit"}, class: "form-btn" %>
-      </div>
-    </div>
-  <% end %>
-  <div class="results-wrapper">
-    <div class="results d-none col-12 col-sm-8 m-3" data-form-target="results">
+    <% end %>
+  </div>
+
+  <div class="results-wrapper col-12 col-sm-9 col-lg-7 mt-3 mb-3">
+    <div class="results d-none" data-form-target="results">
       <!-- Javascript will inject the results here -->
     </div>
   </div>
